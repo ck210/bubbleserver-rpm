@@ -18,6 +18,7 @@
 . /etc/rc.d/init.d/functions
 
 NAME=bubbleserver
+DESC="Bubble Server Upnp Proxy"
 
 if [ `id -u` -ne 0 ]; then
    echo "You need root privileges to run this script"
@@ -50,6 +51,7 @@ do_start()
   fi
 
   cd $DAEMON_PATH
+  echo -n "Starting $DESC: "
   runuser -s /bin/sh -c "exec $DAEMON $DAEMON_OPTS" ${USER} > /dev/null 2>&1 &
 
   RETVAL=$?
@@ -67,23 +69,26 @@ do_start()
 #
 do_stop()
 {
-    killproc -p $PID_FILE $DAEMON
+  echo -n "Stopping $DESC: "
+  if [ -f $PID_FILE ]; then
+    PID=`cat $PID_FILE`
+    kill -HUP $PID
     RETVAL=$?
-    echo
-    [ $RETVAL = 0 ] && rm -f ${PID_FILE}
+    [ $RETVAL = 0 ] && rm -f ${PID_FILE} && success # $"Ok"
+  else
+      failure $"pidfile not found"
+  fi
+  echo
 }
 
 case "$1" in
   start)
-    echo -n "Starting $DESC: "
     do_start
     ;;
   stop)
-    echo -n "Stopping $DESC: "
     do_stop
     ;;
   restart|reload)
-    echo -n "Restarting $DESC: "
     do_stop
     do_start
     ;;
