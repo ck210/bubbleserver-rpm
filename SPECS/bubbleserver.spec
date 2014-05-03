@@ -4,7 +4,7 @@
 Summary: BubbleUPnP Server makes your LAN Media Servers available for streaming over mobile (3G/4G) and WiFi connections
 Name: bubbleserver
 Version: 0.8.2
-Release: 1
+Release: 2
 License: (c) 2011 - 2012 Michael Pujos. All rights reserved. (See LICENCE.txt)
 Group: Applications/Sound
 URL: http://www.bubblesoftapps.com/bubbleupnpserver/
@@ -55,6 +55,7 @@ exit 0
 
 %post
 chkconfig --add %{name}
+chown %{name}:%{name} -R /opt/bubbleserver
 
 %clean
 [ "%{buildroot}" != "/" ] && %{__rm} -rf %{buildroot}
