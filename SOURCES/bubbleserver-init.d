@@ -49,6 +49,9 @@ do_start()
   if pidofproc -p "$PID_FILE" >/dev/null; then
     exit 0
   fi
+  
+  # to make sure ffmpeg is found and used if present in start directory
+  export PATH=.:${PATH}
 
   cd $DAEMON_PATH
   echo -n "Starting $DESC: "
