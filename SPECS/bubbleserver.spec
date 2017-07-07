@@ -3,21 +3,20 @@
 #
 Summary: BubbleUPnP Server makes your LAN Media Servers available for streaming over mobile (3G/4G) and WiFi connections
 Name: bubbleserver
-Version: 0.8.2
-Release: 3
-License: (c) 2011 - 2012 Michael Pujos. All rights reserved. (See LICENCE.txt)
+Version: 0.9.update25
+Release: 1
+License: (c) 2011 - 2015 Michael Pujos. All rights reserved. (See LICENCE.txt)
 Group: Applications/Sound
 URL: http://www.bubblesoftapps.com/bubbleupnpserver/
-Distribution: RedHat/CentOS Linux
 Vendor: Michael Pujos
-Packager: Marcel Beck <marcel.beck@outlook.com>
+Packager: Sanghoon LEE <noohgnas@gmail.com>
 Source: %{name}-%{version}.zip
 Source1: ffmpeg.zip
 Source2: bubbleserver-init.d
 BuildArch: x86_64 i386
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
-Requires: jre >= 1.6.0
+Requires: nss >= 3.23, ffmpeg >= 2.6, java-1.8.0-openjdk-headless >= 1.8
 
 %description
 BubbleUPnP Server:
