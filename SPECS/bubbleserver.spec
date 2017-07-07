@@ -13,7 +13,7 @@ Packager: Sanghoon LEE <noohgnas@gmail.com>
 Source: %{name}-%{version}.zip
 Source1: ffmpeg.zip
 Source2: bubbleserver-init.d
-BuildArch: x86_64 i386
+BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 Requires: nss >= 3.23, ffmpeg >= 2.6, java-1.8.0-openjdk-headless >= 1.8
