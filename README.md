@@ -5,7 +5,7 @@ Instructions Build Package:
 ```
 dnf install mock rpm-build rpmdevtools
 rpmdev-setuptree
-wget --output-document=rpmbuild/SOURCES/bubbleserver-0.9.25.zip http://bubblesoftapps.com/bubbleupnpserver/BubbleUPnPServer-distrib.zip
+wget --output-document=rpmbuild/SOURCES/bubbleserver-0.9.update25.zip http://bubblesoftapps.com/bubbleupnpserver/BubbleUPnPServer-distrib.zip
 wget --output-document=rpmbuild/SOURCES/ffmpeg.zip http://www.bubblesoftapps.com/bubbleupnpserver/core/ffmpeg_linux.zip
 
 git clone https://github.com/noohgnas/bubbleserver-rpm.git
