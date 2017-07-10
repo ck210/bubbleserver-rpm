@@ -30,7 +30,7 @@ BubbleUPnP Server:
 %install
 %{__mkdir_p} %{buildroot}/opt/
 cp -R ${RPM_BUILD_DIR}/%{name}-%{version} %{buildroot}/opt/bubbleserver
-%{__install} -Dp -m0755 %{SOURCE2} %{buildroot}%{_initrddir}/%{name}
+%{__install} -Dp -m0755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
 
 %pre
 getent group %{name} >/dev/null || groupadd -r %{name}
