@@ -33,7 +33,7 @@ USER=bubbleserver
 DAEMON_PATH="/opt/bubbleserver"
 
 DAEMON="java -Xss256k -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dfile.encoding=\"UTF-8\" -jar BubbleUPnPServerLauncher.jar"
-DAEMON_OPTS="$*"
+DAEMON_OPTS=""
 
 #
 # Function that starts the daemon/service
