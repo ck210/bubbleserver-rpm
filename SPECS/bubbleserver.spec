@@ -11,8 +11,7 @@ URL: http://www.bubblesoftapps.com/bubbleupnpserver/
 Vendor: Michael Pujos
 Packager: Sanghoon LEE <noohgnas@gmail.com>
 Source: %{name}-%{version}.zip
-Source1: ffmpeg.zip
-Source2: bubbleserver-init.d
+Source1: bubbleserver-init.d
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
@@ -26,7 +25,7 @@ BubbleUPnP Server:
 -    since v0.5.3 it is possible to do Internet streaming on Windows as well
 
 %prep
-%setup -q -c -b 1
+%setup -q -c
 
 %install
 %{__mkdir_p} %{buildroot}/opt/
