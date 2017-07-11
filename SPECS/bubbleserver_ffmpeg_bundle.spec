@@ -54,7 +54,6 @@ elif [ "$ARCH" = "i386" -o  "$ARCH" = "i686" ]; then
 elif [ "$ARCH" = "armv7l" ]; then
   FFMPEG_ZIP=ffmpeg_linux_armv7l.zip
 fi
-FFMPEG_ZIP=ffmpeg_linux.zip
 if [ ! -z $FFMPEG_ZIP ]; then
   cd ${RPM_BUILD_DIR}/%{name}-%{version}
   wget -q ${DOWNLOAD_BASE_URL}/$FFMPEG_ZIP
