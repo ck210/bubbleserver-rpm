@@ -55,14 +55,11 @@ elif [ "$ARCH" = "armv7l" ]; then
 fi
 FFMPEG_ZIP=ffmpeg_linux.zip
 if [ ! -z $FFMPEG_ZIP ]; then
-  mkdir -p %{buildroot}/opt/bubbleserver
-  cd %{buildroot}
+  cd ${RPM_BUILD_DIR}/%{name}-%{version}
   wget -q ${DOWNLOAD_BASE_URL}/$FFMPEG_ZIP
   unzip $FFMPEG_ZIP
   rm $FFMPEG_ZIP
   chmod +x ffmpeg ffprobe
-  cp -R ffmpeg %{buildroot}/opt/bubbleserver
-  cp -R ffprobe %{buildroot}/opt/bubbleserver
 fi
 
 %install
