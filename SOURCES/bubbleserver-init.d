@@ -75,7 +75,7 @@ do_stop()
   echo -n "Stopping $DESC: "
   if [ -f $PID_FILE ]; then
     PID=`cat $PID_FILE`
-    kill -HUP $PID
+    kill -9 $PID
     RETVAL=$?
     [ $RETVAL = 0 ] && rm -f ${PID_FILE} && success # $"Ok"
   else
