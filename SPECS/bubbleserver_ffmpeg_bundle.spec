@@ -17,6 +17,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 Requires: nss >= 3.23, java-1.8.0-openjdk-headless >= 1.8
 BuildRequires: wget, unzip
+AutoReqProv: no
 
 %description
 BubbleUPnP Server provides new services, many of them running on top of your
