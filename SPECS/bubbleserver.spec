@@ -7,7 +7,7 @@ Version: 0.9.update25
 Release: 1
 License: (c) 2011 - 2015 Michael Pujos. All rights reserved. (See LICENCE.txt)
 Group: Applications/Sound
-URL: http://www.bubblesoftapps.com/bubbleupnpserver/
+URL: https://bubblesoftapps.com/
 Vendor: Michael Pujos
 Packager: Sanghoon LEE <noohgnas@gmail.com>
 Source: %{name}-%{version}.zip
