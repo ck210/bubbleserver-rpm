@@ -12,10 +12,11 @@ Vendor: Michael Pujos
 Packager: Sanghoon LEE <noohgnas@gmail.com>
 Source: %{name}-%{version}.zip
 Source1: bubbleserver-init.d
-BuildArch: noarch
+#BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
-Requires: nss >= 3.23, ffmpeg >= 2.6, java-1.8.0-openjdk-headless >= 1.8
+Requires: nss >= 3.23, java-1.8.0-openjdk-headless >= 1.8
+BuildRequires: wget, unzip
 
 %description
 BubbleUPnP Server provides new services, many of them running on top of your
@@ -40,6 +41,29 @@ BUBBLEUPNP SERVER IS NOT AN UPNP AV MEDIA SERVER.
 
 %prep
 %setup -q -c
+DOWNLOAD_BASE_URL=https://bubblesoftapps.com/bubbleupnpserver/core
+INSTALL_DIR=/usr/share/bubbleupnpserver
+ARCH=`uname -m`
+FFMPEG_ZIP=
+
+if [ "$ARCH" = "x86_64" ]; then
+  FFMPEG_ZIP=ffmpeg_linux.zip
+elif [ "$ARCH" = "i386" -o  "$ARCH" = "i686" ]; then
+  FFMPEG_ZIP=ffmpeg_linux_32bit.zip
+elif [ "$ARCH" = "armv7l" ]; then
+  FFMPEG_ZIP=ffmpeg_linux_armv7l.zip
+fi
+FFMPEG_ZIP=ffmpeg_linux.zip
+if [ ! -z $FFMPEG_ZIP ]; then
+  mkdir -p %{buildroot}/opt/bubbleserver
+  cd %{buildroot}
+  wget -q ${DOWNLOAD_BASE_URL}/$FFMPEG_ZIP
+  unzip $FFMPEG_ZIP
+  rm $FFMPEG_ZIP
+  chmod +x ffmpeg ffprobe
+  cp -R ffmpeg %{buildroot}/opt/bubbleserver
+  cp -R ffprobe %{buildroot}/opt/bubbleserver
+fi
 
 %install
 %{__mkdir_p} %{buildroot}/opt/
