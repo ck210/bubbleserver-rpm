@@ -18,11 +18,25 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 Requires: nss >= 3.23, ffmpeg >= 2.6, java-1.8.0-openjdk-headless >= 1.8
 
 %description
-BubbleUPnP Server:
--    extends your existing UPnP AV Media Servers and Media Renderers on your network with new functionality
--    allow easy Internet streaming and downloading of your music and videos over mobile and WiFi 
-     connections with BubbleUPnP for Android, in a secure and network bandwidth efficient way.
--    since v0.5.3 it is possible to do Internet streaming on Windows as well
+BubbleUPnP Server provides new services, many of them running on top of your
+existing UPnP/DLNA devices:
+
+- make various media formats not natively supported by Chromecast playable
+  with transcoding. Works in tandem with Android BubbleUPnP
+- secure Internet access to your UPnP/DLNA Media Servers content with
+  Android BubbleUPnP and foobar2000:
+  - stream and download your music, video, photos with your Android
+    device from a mobile or WiFi connection with optional transcoding to
+    reduce bandwidth.
+  - no need to sync, to upload to the cloud, to register to an online
+    service
+- create OpenHome Media Renderers from any UPnP AV renderer (provides
+  on-device playlist, multiple Control Point access to the same renderer)
+- fix issues of UPnP/DLNA Media Servers (discovery issues, broken data,
+  add some audio DLNA compliance) by creating a proxy Media Server
+- access your UPnP/DLNA Media Servers across different networks
+
+BUBBLEUPNP SERVER IS NOT AN UPNP AV MEDIA SERVER.
 
 %prep
 %setup -q -c
