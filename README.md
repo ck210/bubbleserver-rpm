@@ -24,3 +24,7 @@ dnf -y install http://www.squeezecommunity.org/repo/squeezecommunity-repo.noarch
 dnf -y update squeezecommunity-repo
 dnf install ./bubbleserver-0.9.update25-1.noarch.rpm
 ```
+
+bubbleupnpserver
+===
+https://bubblesoftapps.com/bubbleupnpserver/
